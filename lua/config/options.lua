@@ -2,10 +2,12 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.g.termguicolors = true
+vim.opt.termguicolors = true
 vim.g.autoformat = true -- format on save
 vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver100/,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
 vim.opt.cursorline = true -- highlight the current line
+vim.opt.pumblend = 0 -- related to autocomplete documentation bg transparent, idk not make transparent bg
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 vim.opt.number = true -- Set numbered lines
 vim.opt.list = false -- Hide characters on tabs and spaces

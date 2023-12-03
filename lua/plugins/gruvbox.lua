@@ -98,6 +98,18 @@ return {
         NormalFloat = { bg = "#1d2021" },
         NormalNC = { bg = "#1d2021" },
         Special = { fg = "#8ec07c" }, -- includes custom components for React
+        MsgArea = { bg = "#1d2021" },
+        Pmenu = { bg = "#1d2021" },
+        PmenuSel = { bg = "#3c3836", fg = "#8ec07c" },
+        typescriptDocRef = { fg = "#fe8019" },
+        typescriptDocName = { fg = "#fe8019" },
+        typescriptDocDesc = { fg = "#fe8019" },
+        typescriptDocA = { fg = "#fe8019" },
+        -- NormalNC       xxx guifg=#fbf1c7
+        -- MsgSeparator   xxx links to StatusLine
+        -- NormalFloat    xxx guifg=#ebdbb2 guibg=#1d2021
+        -- MsgArea        xxx cleared
+        -- FloatBorder    xxx links to WinSeparator
         -- Comment = { bg = "#1d2021" },
         -- WinBar = { fg = "#fbf1c7", bg = "#282828" },
         -- WinBarNC = { fg = "#bdae93", bg = "#3c3836" },
@@ -105,25 +117,31 @@ return {
         ["FidgetTitle"] = { bg = "#1d2021" },
 
         -- rcarriga/nvim-dap-ui
-        -- ["DapUIVariable"] = { link = "Normal" },
-        -- ["DapUIValue"] = { link = "Normal" },
-        -- ["DapUIFrameName"] = { link = "Normal" },
-        -- ["DapUIThread"] = { fg = p.gold },
-        -- ["DapUIWatchesValue"] = { link = "DapUIThread" },
-        -- ["DapUIBreakpointsInfo"] = { link = "DapUIThread" },
-        -- ["DapUIBreakpointsCurrentLine"] = { fg = p.gold, bold = true },
-        -- ["DapUIWatchesEmpty"] = { fg = p.love },
-        -- ["DapUIWatchesError"] = { link = "DapUIWatchesEmpty" },
-        -- ["DapUIBreakpointsDisabledLine"] = { fg = p.muted },
-        -- ["DapUISource"] = { fg = p.iris },
-        -- ["DapUIBreakpointsPath"] = { fg = p.foam },
-        -- ["DapUIScope"] = { link = "DapUIBreakpointsPath" },
-        -- ["DapUILineNumber"] = { link = "DapUIBreakpointsPath" },
-        -- ["DapUIBreakpointsLine"] = { link = "DapUIBreakpointsPath" },
-        -- ["DapUIFloatBorder"] = { link = "DapUIBreakpointsPath" },
-        -- ["DapUIStoppedThread"] = { link = "DapUIBreakpointsPath" },
-        -- ["DapUIDecoration"] = { link = "DapUIBreakpointsPath" },
-        -- ["DapUIModifiedValue"] = { fg = p.foam, bold = true },
+        -- debugPC = { link = "DiffAdd" },
+        ["DapUIVariable"] = { fg = "#8ec07c" },
+        ["DapUIValue"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIFrameName"] = { link = "Normal" },
+        ["DapUIThread"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIWatchesValue"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIBreakpointsInfo"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIBreakpointsCurrentLine"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIWatchesEmpty"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIWatchesError"] = { fg = "#fe4934", bg = "#1d2021" },
+        ["DapUIBreakpointsDisabledLine"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUISource"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIBreakpointsPath"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIScope"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUILineNumber"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIBreakpointsLine"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIFloatBorder"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIStoppedThread"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIDecoration"] = { fg = "#fe8019", bg = "#1d2021" },
+        ["DapUIModifiedValue"] = { fg = "#fe8019", bg = "#1d2021" },
+        -- ["DapUIStepOver"] = { fg = "#8ec07c", bg = "#1d2021" },
+        -- ["DapUIStepOut"] = { fg = "#8ec07c", bg = "#1d2021" },
+        -- ["DapUIStepInto"] = { fg = "#8ec07c", bg = "#1d2021" },
+        -- ["DapUIStepBack"] = { fg = "#8ec07c", bg = "#1d2021" },
+        ["DapUIStepOverNC"] = { bg = "#1d2021" },
       },
       dim_inactive = true,
       transparent_mode = true,
@@ -165,26 +183,39 @@ return {
     },
   },
 
+  {
+    "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.gruvbox_material_better_performance = 1
+      -- Fonts
+      vim.g.gruvbox_material_disable_italic_comment = 1
+      vim.g.gruvbox_material_enable_italic = 0
+      vim.g.gruvbox_material_enable_bold = 1
+      vim.g.gruvbox_material_transparent_background = 0
+      -- Themes
+      vim.g.gruvbox_material_foreground = "mix"
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_ui_contrast = "high" -- The contrast of line numbers, indent lines, etc.
+      vim.g.gruvbox_material_float_style = "dim" -- Background of floating windows
+      vim.g.gruvbox_material_statusline_style = "mix"
+      -- Custom highlights
+      vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
+
+      vim.cmd.colorscheme("gruvbox-material") -- For highlights customizations go to lua/core/highlights
+    end,
+  },
+
   -- {
-  --   "sainnhe/gruvbox-material",
-  --   lazy = false,
+  --   "eddyekofo94/gruvbox-flat.nvim",
   --   priority = 1000,
+  --   enabled = true,
   --   config = function()
-  --     vim.g.gruvbox_material_better_performance = 1
-  --     -- Fonts
-  --     vim.g.gruvbox_material_disable_italic_comment = 1
-  --     vim.g.gruvbox_material_enable_italic = 0
-  --     vim.g.gruvbox_material_enable_bold = 1
-  --     vim.g.gruvbox_material_transparent_background = 0
-  --     -- Themes
-  --     vim.g.gruvbox_material_foreground = "mix"
-  --     vim.g.gruvbox_material_background = "hard"
-  --     vim.g.gruvbox_material_ui_contrast = "high" -- The contrast of line numbers, indent lines, etc.
-  --     vim.g.gruvbox_material_float_style = "dim" -- Background of floating windows
-  --     vim.g.gruvbox_material_statusline_style = "mix"
-  --
-  --     vim.cmd.colorscheme("gruvbox-material") -- For highlights customizations go to lua/core/highlights
+  --     vim.g.gruvbox__transparent = true
+  --     -- vim.cmd.colorscheme("gruvbox-flat")
   --   end,
+  --   -- opts = {},
   -- },
 
   {
@@ -195,7 +226,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "gruvbox-material",
     },
   },
 
