@@ -1,5 +1,15 @@
 return {
   {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      defaults = {
+        ["<leader>h"] = { name = "+harpoon" },
+      },
+    },
+  },
+
+  {
     "smjonas/inc-rename.nvim",
     config = function()
       require("inc_rename").setup()
