@@ -226,6 +226,18 @@ return {
   {
     "davidosomething/format-ts-errors.nvim",
   },
+
+  {
+    "barrett-ruth/live-server.nvim",
+    build = "npm i -g live-server",
+    config = true,
+    opts = {
+      args = { "--host=localhost", "--port=8080" },
+    },
+    -- :h live-server
+    -- :LiveServerStart
+    -- :LiveServerStop
+  },
 }
 -- icons = {
 --   misc = {
