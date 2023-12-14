@@ -16,6 +16,10 @@ return {
     end,
   },
 
+  {
+    "mg979/vim-visual-multi",
+  },
+
   -- {
   --   "folke/noice.nvim",
   --   opts = function(_, opts)
@@ -237,6 +241,14 @@ return {
     -- :h live-server
     -- :LiveServerStart
     -- :LiveServerStop
+  },
+
+  {
+    "AndrewRadev/inline_edit.vim",
+    -- Execute :InlineEdit within the script tag.
+    -- A proxy buffer is opened with only the javascript.
+    -- Saving the proxy buffer updates the original one.
+    -- You can reindent, lint, slice and dice as much as you like.
   },
 }
 -- icons = {

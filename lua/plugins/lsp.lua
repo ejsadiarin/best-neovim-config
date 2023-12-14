@@ -46,4 +46,12 @@ return {
       },
     },
   },
+
+  -- {
+  -- if tsserver is slow:
+  -- https://www.reddit.com/r/neovim/comments/14fdyjk/typescripttoolsnvim_the_typescript_integration/
+  -- "pmizio/typescript-tools.nvim",
+  -- dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  -- opts = {},
+  -- },
 }
