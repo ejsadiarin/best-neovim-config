@@ -94,6 +94,7 @@ return {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
+    priority = 1000,
     opts = {
       filesystem = {
         filtered_items = {
@@ -105,14 +106,14 @@ return {
     },
   },
   -- highlight css colors
-  {
-    "brenoprata10/nvim-highlight-colors",
-    opts = {
-      ft = { "css" },
-      config = true,
-      lazy = true,
-    },
-  },
+  -- {
+  --   "brenoprata10/nvim-highlight-colors",
+  --   opts = {
+  --     ft = { "css" },
+  --     config = true,
+  --     lazy = true,
+  --   },
+  -- },
   {
     "windwp/nvim-autopairs",
     event = "VeryLazy",

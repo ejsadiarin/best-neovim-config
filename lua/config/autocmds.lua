@@ -19,9 +19,9 @@ vim.api.nvim_create_autocmd("WinLeave", {
 --hi Search guibg=peru guifg=wheat
 -- for terminals:
 --hi Search cterm=NONE ctermfg=grey ctermbg=blue
-vim.api.nvim_set_hl(0, "FidgetTitle", { link = "NormalFloat" })
-vim.api.nvim_set_hl(0, "FidgetTask", { link = "NormalFloat" })
-vim.api.nvim_set_hl(0, "transparentBG", { bg = "NONE", fg = "LightGray" })
+-- vim.api.nvim_set_hl(0, "FidgetTitle", { link = "NormalFloat" })
+-- vim.api.nvim_set_hl(0, "FidgetTask", { link = "NormalFloat" })
+-- vim.api.nvim_set_hl(0, "transparentBG", { bg = "NONE", fg = "LightGray" })
 
 -- prints diagnostics on message area, has problems if diagnostic has too many messages
 -- function PrintDiagnostics(opts, bufnr, line_nr, client_id)

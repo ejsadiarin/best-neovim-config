@@ -33,6 +33,9 @@ return {
       "gofumpt",
       -- Rust
       "rust-analyzer",
+      -- Docker-related
+      "docker-compose-language-service",
+      "dockerfile-language-server",
       -- Others (JSON, TOML, etc.)
       "json-lsp",
       "codelldb",
