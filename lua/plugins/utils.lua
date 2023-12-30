@@ -5,6 +5,8 @@ return {
     opts = {
       defaults = {
         ["<leader>h"] = { name = "+harpoon" },
+        ["<leader>v"] = { name = "+visual-multi" },
+        ["<leader>r"] = { name = "+hacks" },
       },
     },
   },
