@@ -13,6 +13,17 @@ vim.api.nvim_create_autocmd("WinLeave", {
   end,
 })
 
+vim.api.nvim_exec(
+  [[
+  augroup autoquickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost    l* lwindow
+  augroup END
+]],
+  false
+)
+
 -- :h hi
 -- https://stackoverflow.com/questions/7103173/vim-how-to-change-the-highlight-color-for-search-hits-and-quickfix-selection
 -- for GUI:
