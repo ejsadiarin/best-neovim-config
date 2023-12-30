@@ -124,23 +124,6 @@ return {
   },
 
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-        config = function()
-          require("telescope").load_extension("fzf")
-        end,
-      },
-    },
-    config = function(_, opts)
-      local telescope = require("telescope")
-      telescope.setup(opts)
-      telescope.load_extension("harpoon")
-    end,
-  },
-  {
     "echasnovski/mini.surround",
     opts = {
       mappings = {
@@ -170,7 +153,7 @@ return {
   },
   {
     "ThePrimeagen/harpoon",
-    lazy = false,
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -201,6 +184,8 @@ return {
         tabline_suffix = "   ",
       },
     },
+    -- keys = {
+    -- }
   },
   {
     "j-hui/fidget.nvim",
