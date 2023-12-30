@@ -1,6 +1,8 @@
 # Exquisite Nvim Config
 1. Ensure to install the following dependencies using your package manager:
 - git
+- gcc
+- make
 - [ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
 - [fd](https://github.com/sharkdp/fd#installation)
 - [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#installation)
