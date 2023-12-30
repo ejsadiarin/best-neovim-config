@@ -35,10 +35,15 @@ return {
         -- end,
       },
     },
+    -- pickers = {
+    --   buffers = {
+    --     initial_mode = "normal",
+    --   },
+    -- },
     extensions = {
       file_browser = {
         hijack_netrw = true,
-        cwd_to_path = true,
+        cwd_to_path = false,
         -- mappings = {
         --   ["i"] = {
         --     ["<C-h>"] = fb_actions.goto_home_dir,
@@ -61,19 +66,25 @@ return {
       -- },
     },
     keys = {
-      -- HACK: nvim in home dir so "cwd" is home dir
-      { "<leader>fB", "<CMD>Telescope file_browser<CR>", desc = "File Browser (path/root/parent dir)" },
+      { "<leader>fS", "<CMD>Telescope file_browser<CR>", desc = "File System (cwd)" },
       {
-        "<leader>rb",
-        "<CMD>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-        desc = "Open path of current buffer",
+        "<leader>fs",
+        ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+        desc = "File System (root/dynamic)",
       },
-      -- HACK: use <leader>rg then "<prompt> /home/"
+      { "<leader><space>", ":silent grep ", { silent = false }, desc = "Manual Grep (rg)" },
       {
-        "<leader>rg",
+        "<leader>sg",
         "<CMD>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-        desc = "Live Grep with Args (Raw)",
+        desc = "Live Grep with Args (cwd)",
       },
+      { "<leader>sG", Util.telescope("live_grep"), desc = "Grep (root/dynamic)" },
+      -- { "<leader>sG", require("telescope").extensions.live_grep_args.live_grep_args({ cwd = false }), desc = "Grep (root/dynamic)" },
+      -- replaced keymaps:
+      -- { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+      -- { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+
+      -- BUG: fb_actions.goto_home_dir not working - extension not loading, make don't work
       -- {
       --   "<leader>rf",
       --   function()
@@ -82,8 +93,6 @@ return {
       --   end,
       --   desc = "Find files in home directory",
       -- },
-      -- { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-      -- { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
     },
     config = function()
       Util.on_load("telescope.nvim", function()
