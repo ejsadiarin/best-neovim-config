@@ -21,11 +21,6 @@ vim.keymap.set("n", "<leader>p", '"0p', { desc = "Unpolluted Paste" })
 vim.keymap.set("n", "<C-U>", "<C-U>zz")
 vim.keymap.set("n", "<C-D>", "<C-D>zz")
 
--- better renaming functionality
-vim.keymap.set({ "n", "v" }, "<leader>rn", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true })
-
 -- colorizer keymap
 vim.keymap.set("n", "<leader>cc", "<CMD>ColorizerToggle<CR>")
 
