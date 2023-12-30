@@ -38,8 +38,8 @@ map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 -- vim.keymap.set("n", "<leader>fh", "<CMD>Telescope harpoon marks<CR>", { desc = "Find Harpoon Marks in Project" })
 vim.keymap.set("n", "<leader>fh", require("harpoon.ui").toggle_quick_menu, { desc = "Find Harpoon Marks in Project" })
 vim.keymap.set("n", "<leader>ha", require("harpoon.mark").add_file, { desc = "Harpoon add mark" })
-vim.keymap.set("n", "<c-n>", require("harpoon.ui").nav_next, {})
-vim.keymap.set("n", "<c-p>", require("harpoon.ui").nav_prev, {})
+vim.keymap.set("n", "<c-l>", require("harpoon.ui").nav_next, {})
+vim.keymap.set("n", "<c-h>", require("harpoon.ui").nav_prev, {})
 vim.keymap.set(
   "n",
   "<leader>h1",
