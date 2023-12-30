@@ -27,7 +27,7 @@ vim.keymap.set({ "n", "v" }, "<leader>rn", function()
 end, { expr = true })
 
 -- colorizer keymap
-vim.keymap.set("n", "<leader>cc", "<CMD>ColorizerAttachToBuffer<CR>")
+vim.keymap.set("n", "<leader>cc", "<CMD>ColorizerToggle<CR>")
 
 -- Save without formatting
 vim.keymap.set("n", "<leader>cs", ":noautocmd w<CR>", { desc = "Save without formatting" })
