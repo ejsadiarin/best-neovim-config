@@ -34,33 +34,70 @@ end
 map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
 map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 
--- Harpoon marks
--- vim.keymap.set("n", "<leader>fh", "<CMD>Telescope harpoon marks<CR>", { desc = "Find Harpoon Marks in Project" })
-vim.keymap.set("n", "<leader>fh", require("harpoon.ui").toggle_quick_menu, { desc = "Find Harpoon Marks in Project" })
-vim.keymap.set("n", "<leader>ha", require("harpoon.mark").add_file, { desc = "Harpoon add mark" })
-vim.keymap.set("n", "<c-l>", require("harpoon.ui").nav_next, {})
-vim.keymap.set("n", "<c-h>", require("harpoon.ui").nav_prev, {})
-vim.keymap.set(
-  "n",
-  "<leader>h1",
-  '<CMD>lua require("harpoon.ui").nav_file(1)<CR>',
-  { desc = "Navigate to harpoon buffer 1" }
-)
-vim.keymap.set("n", "<leader>h2", '<CMD>lua require("harpoon.ui").nav_file(2)<CR>', { desc = "...buffer 2" })
-vim.keymap.set("n", "<leader>h3", '<CMD>lua require("harpoon.ui").nav_file(3)<CR>', { desc = "...buffer 3" })
-vim.keymap.set("n", "<leader>h4", '<CMD>lua require("harpoon.ui").nav_file(4)<CR>', { desc = "...buffer 4" })
-vim.keymap.set("n", "<leader>h5", '<CMD>lua require("harpoon.ui").nav_file(5)<CR>', { desc = "...buffer 5" })
-vim.keymap.set("n", "<leader>h6", '<CMD>lua require("harpoon.ui").nav_file(6)<CR>', { desc = "...buffer 6" })
-vim.keymap.set("n", "<leader>h7", '<CMD>lua require("harpoon.ui").nav_file(7)<CR>', { desc = "...buffer 7" })
-vim.keymap.set("n", "<leader>h8", '<CMD>lua require("harpoon.ui").nav_file(8)<CR>', { desc = "...buffer 8" })
-vim.keymap.set("n", "<leader>h9", '<CMD>lua require("harpoon.ui").nav_file(9)<CR>', { desc = "...buffer 9" })
+-- Harpoon
+local harpoon = require("harpoon")
+harpoon:setup({})
+
+vim.keymap.set("n", "<leader>ha", function()
+  harpoon:list():append()
+end, { desc = "Harpoon add mark" })
+
+-- TODO: prettify the harpoon UI (make it transparent, since it is now a "floating window")
+-- use native Harpoon UI (can edit like a buffer)
+vim.keymap.set("n", "<leader>fh", function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = "Find Harpoon Marks" })
+
+-- use telescope for Harpoon UI (cannot edit like a buffer tho)
+-- vim.keymap.set("n", "<leader>fh", function()
+--   local conf = require("telescope.config").values
+--   local function toggle_telescope(harpoon_files)
+--     local file_paths = {}
+--     for _, item in ipairs(harpoon_files.items) do
+--       table.insert(file_paths, item.value)
+--     end
+--
+--     require("telescope.pickers")
+--       .new({}, {
+--         prompt_title = "Harpoon",
+--         finder = require("telescope.finders").new_table({
+--           results = file_paths,
+--         }),
+--         previewer = conf.file_previewer({}),
+--         sorter = conf.generic_sorter({}),
+--       })
+--       :find()
+--   end
+--   toggle_telescope(harpoon:list())
+--   -- harpoon.ui:toggle_telescope(harpoon:list())
+-- end, { desc = "Find Harpoon Marks in Project" })
+
+vim.keymap.set("n", "<C-p>", function()
+  harpoon:list():prev()
+end)
+vim.keymap.set("n", "<C-n>", function()
+  harpoon:list():next()
+end)
+
+vim.keymap.set("n", "<leader>h1", function()
+  harpoon:list():select(1)
+end, { desc = "...buffer 1" })
+vim.keymap.set("n", "<leader>h2", function()
+  harpoon:list():select(2)
+end, { desc = "...buffer 2" })
+vim.keymap.set("n", "<leader>h3", function()
+  harpoon:list():select(3)
+end, { desc = "...buffer 3" })
+vim.keymap.set("n", "<leader>h4", function()
+  harpoon:list():select(4)
+end, { desc = "...buffer 4" })
 
 -- multiple cursors/ visual-multi (https://github.com/mg979/vim-visual-multi/wiki/Mappings)
 vim.keymap.set("n", "<leader>vm", "<Plug>(VM-Find-Under)", { desc = "Start Visual Multi" })
-vim.keymap.set("n", "<C-j>", "<Plug>(VM-Add-Cursor-Down)", { desc = "VM mode Cursor Down" })
-vim.keymap.set("n", "<C-k>", "<Plug>(VM-Add-Cursor-Up)", { desc = "VM mode Cursor Up" })
-vim.keymap.set("n", "<C-LeftMouse>", "<Plug>(VM-Mouse-Cursor)", { desc = "Multi line cursor" })
+vim.keymap.set("n", "<C-S-k>", "<Plug>(VM-Add-Cursor-Up)", { desc = "VM mode Cursor Up" })
+vim.keymap.set("n", "<C-S-j>", "<Plug>(VM-Add-Cursor-Down)", { desc = "VM mode Cursor Down" })
 vim.keymap.set("n", "<C-RightMouse>", "<Plug>(VM-Mouse-Word)", { desc = "Multi line cursor" })
+vim.keymap.set("n", "<C-LeftMouse>", "<Plug>(VM-Mouse-Cursor)", { desc = "Multi line cursor" })
 vim.keymap.set("n", "<M-C-RightMouse>", "<Plug>(VM-Mouse-Column)", { desc = "Multi line cursor" })
 -- visual multi specific options
 -- vim.g.VM_maps = {}
