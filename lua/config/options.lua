@@ -6,11 +6,13 @@ vim.opt.termguicolors = true
 vim.g.autoformat = true -- format on save
 vim.opt.grepprg = "rg --vimgrep --hidden -g !.git"
 vim.opt.grepformat = "%f:%l:%c:%m"
-vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver100/,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
+-- vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver100/,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
+vim.opt.guicursor = ""
 vim.opt.cursorline = true -- highlight the current line
 vim.opt.pumblend = 0 -- related to autocomplete documentation bg transparent, idk not make transparent bg
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+-- Visual Multi Options
 -- vim.g.VM_default_mappings = 0
 vim.g.VM_maps = {
   ["Find Under"] = "",
