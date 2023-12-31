@@ -92,10 +92,22 @@ vim.keymap.set("n", "<leader>h4", function()
   harpoon:list():select(4)
 end, { desc = "...buffer 4" })
 
--- multiple cursors/ visual-multi (https://github.com/mg979/vim-visual-multi/wiki/Mappings)
+-- Oil
+vim.keymap.set("n", "<leader>fs", "<CMD>Oil<CR>", { desc = "File System (of current buffer) " })
+
+-- Tmux Navigation
+vim.keymap.set("n", "<C-h>", "<CMD>TmuxNavigateLeft<CR>", { desc = "Tmux Navigate Left" })
+vim.keymap.set("n", "<C-j>", "<CMD>TmuxNavigateDown<CR>", { desc = "Tmux Navigate Down" })
+vim.keymap.set("n", "<C-k>", "<CMD>TmuxNavigateUp<CR>", { desc = "Tmux Navigate Up" })
+vim.keymap.set("n", "<C-l>", "<CMD>TmuxNavigateRight<CR>", { desc = "Tmux Navigate Right" })
+
+-- Multiple cursors/ visual-multi (https://github.com/mg979/vim-visual-multi/wiki/Mappings)
 vim.keymap.set("n", "<leader>vm", "<Plug>(VM-Find-Under)", { desc = "Start Visual Multi" })
-vim.keymap.set("n", "<C-S-k>", "<Plug>(VM-Add-Cursor-Up)", { desc = "VM mode Cursor Up" })
-vim.keymap.set("n", "<C-S-j>", "<Plug>(VM-Add-Cursor-Down)", { desc = "VM mode Cursor Down" })
+
+-- this is similar to <C-S-k> and <C-S-j> in normal mode:
+vim.keymap.set("n", "<C-K>", "<Plug>(VM-Add-Cursor-Up)", { desc = "VM mode Cursor Up" })
+vim.keymap.set("n", "<C-J>", "<Plug>(VM-Add-Cursor-Down)", { desc = "VM mode Cursor Down" })
+
 vim.keymap.set("n", "<C-RightMouse>", "<Plug>(VM-Mouse-Word)", { desc = "Multi line cursor" })
 vim.keymap.set("n", "<C-LeftMouse>", "<Plug>(VM-Mouse-Cursor)", { desc = "Multi line cursor" })
 vim.keymap.set("n", "<M-C-RightMouse>", "<Plug>(VM-Mouse-Column)", { desc = "Multi line cursor" })

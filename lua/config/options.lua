@@ -11,6 +11,11 @@ vim.opt.cursorline = true -- highlight the current line
 vim.opt.pumblend = 0 -- related to autocomplete documentation bg transparent, idk not make transparent bg
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+-- vim.g.VM_default_mappings = 0
+vim.g.VM_maps = {
+  ["Find Under"] = "",
+}
+
 vim.opt.number = true -- Set numbered lines
 vim.opt.list = false -- Hide characters on tabs and spaces
 vim.opt.scrolloff = 5 -- Minimal number of screen lines to keep above and below the cursor
