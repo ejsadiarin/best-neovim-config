@@ -83,6 +83,28 @@ return {
         end,
         desc = "Find files from Home",
       },
+      {
+        "<leader>fd",
+        function()
+          local dir = vim.env.HOME .. "/dotfiles"
+          require("telescope.builtin").find_files({
+            find_command = { "fd", "-tf", "--hidden", "--search-path", dir },
+            prompt_prefix = "~/dotfiles ",
+          })
+        end,
+        desc = "Exquisite Dotfiles",
+      },
+      {
+        "<leader>fC",
+        function()
+          local dir = vim.env.HOME .. "/.config"
+          require("telescope.builtin").find_files({
+            find_command = { "fd", "-tf", "-td", "--hidden", "--search-path", dir },
+            prompt_prefix = "~/.configs ",
+          })
+        end,
+        desc = "Find files on .configs",
+      },
       -- { "<leader>sG", require("telescope").extensions.live_grep_args.live_grep_args({ cwd = false }), desc = "Grep (root/dynamic)" },
       -- replaced keymaps:
       -- { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
