@@ -6,6 +6,7 @@
 - [ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
 - [fd](https://github.com/sharkdp/fd#installation)
 - [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#installation)
+- [lazygit](https://github.com/jesseduffield/lazygit)
 
 2. Install the config
 - backup your existing config:
@@ -58,7 +59,7 @@
 ### Git
 - `<leader>gg` - open lazygit (root/dynamic)
 - `<leader>gs` - git status (root/dynamic)
-
+---
 ### Powered by 💤 LazyVim
   - A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
   - Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
