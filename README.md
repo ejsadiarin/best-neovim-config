@@ -30,12 +30,12 @@
   nvim
   ```
 
-## Workflow
+# Workflow
 ### NOTE:
-root/dynamic - telescope searches via git root based on current active buffer (respects `.gitignore`)
-cwd - where you opened `nvim` command (after `cd`-ing to dirs)
+- root/dynamic - telescope searches via git root based on current active buffer (respects `.gitignore`)
+- cwd - where you opened `nvim` command (after `cd`-ing to dirs)
 
-### Main commands:
+## Main commands:
 - `<leader>ff` - find files (root/dynamic)
 - `<leader>fH` - find files from home
 - `<leader>fp` - find projects (useful for changing cwd)
@@ -44,18 +44,18 @@ cwd - where you opened `nvim` command (after `cd`-ing to dirs)
 - `<leader>fs` - file system (root/dynamic)
 - `<leader>xx` - diagnostics (current buffer)
 - `<leader>xX` - diagnostics (workspace)
-Harpoon
+### Harpoon
 - `<leader>fh` - find harpoon marks (workspace)
 - `<leader>ha` - add harpoon marks (workspace)
 - `<C-n> and <C-p>` - cycle through harpoon marks (workspace)
-Grepping
+### Grepping
 - `<leader>sg` - live grep with args (root/dynamic)
   - combo: `<leader>sg` search: "<prompt>" <path>/<to>/<search>
 - `<leader>sG` - live grep with args from home
 - `<leader><space>` - manual grep via command, output through quickfix list (<leader>xq):
   - ex. `:silent grep Foo src/components/`
   - `<leader>xq` - quickfix list (for grep output)
-Git
+### Git
 - `<leader>gg` - open lazygit (root/dynamic)
 - `<leader>gs` - git status (root/dynamic)
 
