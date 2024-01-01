@@ -53,10 +53,36 @@ return {
       { "<leader><space>", ":silent grep ", { silent = false }, desc = "Manual Grep (rg)" },
       {
         "<leader>sg",
-        "<CMD>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-        desc = "Live Grep with Args (cwd)",
+        function()
+          require("telescope").extensions.live_grep_args.live_grep_args({
+            cwd = require("telescope.utils").buffer_dir(),
+          })
+        end,
+        desc = "Live Grep (root/dynamic)",
       },
-      { "<leader>sG", Util.telescope("live_grep"), desc = "Grep (root/dynamic)" },
+      {
+        "<leader>sG",
+        function()
+          local dir = vim.env.HOME .. "/"
+          require("telescope").extensions.live_grep_args.live_grep_args({
+            search_dirs = { dir },
+            -- idk if needed kekw (since it is just grepping string, not files):
+            additional_args = { "--hidden" },
+          })
+        end,
+        desc = "Live Grep from Home",
+      },
+      {
+        "<leader>fH",
+        function()
+          local dir = vim.env.HOME .. "/"
+          require("telescope.builtin").find_files({
+            find_command = { "fd", "-tf", "-td", "-E", "node_modules", "--search-path", dir },
+            prompt_prefix = "~/ ",
+          })
+        end,
+        desc = "Find files from Home",
+      },
       -- { "<leader>sG", require("telescope").extensions.live_grep_args.live_grep_args({ cwd = false }), desc = "Grep (root/dynamic)" },
       -- replaced keymaps:
       -- { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
